@@ -2,15 +2,17 @@
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
       <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-9 text-center">
-          <h1>One Page Bootstrap Website Template</h1>
-          <h2>We are team of talented designers</h2>
+          <h1>Aplikasi Sewa Barang</h1>
+          <h2>Jasa Sewa Barang</h2>
         </div>
       </div>
       <div class="text-center">
-        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+        <a href="#catalog" class="btn-get-started scrollto">Katalog</a>
       </div>
 
-      <div class="row icon-boxes">
+      @include('layout.contents.about')
+
+      <!-- <div class="row icon-boxes">
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
           <div class="icon-box">
             <div class="icon"><i class="ri-stack-line"></i></div>
@@ -43,6 +45,6 @@
           </div>
         </div>
 
-      </div>
+      </div> -->
     </div>
   </section>
