@@ -53,7 +53,7 @@
 
       <div class="mr-md-auto text-center text-md-left">
         <div class="copyright">
-          &copy; Copyright <strong><span>PINJEMIN.COM</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>PINJEMINAJA.COM</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
           <!-- All the links in the footer should remain intact. -->

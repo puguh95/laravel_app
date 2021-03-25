@@ -17,10 +17,6 @@
 
   <main id="main">
 
-    <!-- ======= About Section ======= -->
-    <!-- @include('layout.contents.about') -->
-    <!-- End About Section -->
-
     <!-- ======= Counts Section ======= -->
     <!-- @include('layout.contents.count') -->
     <!-- End Counts Section -->
