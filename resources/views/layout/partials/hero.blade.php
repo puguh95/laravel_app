@@ -2,8 +2,8 @@
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
       <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-9 text-center">
-          <h1>Aplikasi Sewa Barang</h1>
-          <h2>Jasa Sewa Barang</h2>
+          <h1>PINJEMINAJA.COM</h1>
+          <h2>Aplikasi Jasa Sewa Barang</h2>
         </div>
       </div>
       <div class="text-center">
