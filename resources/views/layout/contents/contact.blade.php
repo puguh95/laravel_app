@@ -14,17 +14,17 @@
 
           <div class="col-lg-4">
             <div class="info">
-              <div class="address">
+              <!-- <div class="address">
                 <i class="icofont-web"></i>
                 <h4>Kontak Website:</h4>
                 <p><a href="https://pinjeminaja.com">pinjeminaja.com</a></p>
-              </div>
+              </div> -->
 
-              <!-- <div class="email">
+              <div class="address">
                 <i class="icofont-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
-              </div> -->
+                <p><a href="mailto:pinjeminaja03@gmail.com">pinjeminaja03@gmail.com</a></p>
+              </div>
 
               <!-- <div class="phone">
                 <i class="icofont-phone"></i>
@@ -41,7 +41,7 @@
               <div class="address">
                 <i class="icofont-instagram"></i>
                 <h4>Instagram:</h4>
-                <p><a href="https://www.instagram.com">www.instagram.com</a></p>
+                <p><a href="https://www.instagram.com/pinjemin.aja">pinjemin.aja</a></p>
               </div>
             </div>
           </div>
@@ -51,7 +51,7 @@
               <div class="address">
                 <i class="icofont-phone"></i>
                 <h4>Telepon:</h4>
-                <p>081234567890...</p>
+                <p>+62 838 0642 3923</p>
               </div>
             </div>
           </div>
