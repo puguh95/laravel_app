@@ -5,8 +5,26 @@
 
       @include('layout.partials.navigator')
       <!-- .nav-menu -->
+      @isset(Auth::user()->username)
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="drop-down">
+            <a>Hi {{ Auth::user()->username }} !</a>
+            <ul>
+              <li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-block">
+                  @csrf
+                  <a href="#" onclick="document.getElementById('logout-form').submit()">Logout</a>
+                </form>
+              </li>
+            </ul>
+          </li>
+        <ul>
+      </nav>
+      @endisset
 
-      <a href="#login" class="get-started-btn scrollto">Login</a>
-
+      @empty(Auth::user()->username)
+      <a href="/login" class="get-started-btn scrollto">Login</a>
+      @endempty
     </div>
   </header>
