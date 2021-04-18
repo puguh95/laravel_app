@@ -44,6 +44,17 @@ use App\Http\Controllers\CatalogController;
 // Route::get('/', function () {
 //     return view('index');
 // });
+
+Route::get('/config-cache', function() {
+    \Artisan::call('config:cache');
+    echo 'Config cache cleared';
+});
+Route::get('/updateapp', function()
+{
+   \Artisan::call('dump-autoload');
+   echo 'dump-autoload complete';
+});
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Auth::routes();
