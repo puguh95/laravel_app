@@ -12,6 +12,12 @@
             <a>Hi {{ Auth::user()->username }} !</a>
             <ul>
               <li>
+                <a href="#">Data Diri</a>
+              </li>
+              <li>
+                <a href="#">List Pemesanan</a>
+              </li>
+              <li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-block">
                   @csrf
                   <a href="#" onclick="document.getElementById('logout-form').submit()">Logout</a>
