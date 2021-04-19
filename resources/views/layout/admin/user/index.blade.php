@@ -34,6 +34,7 @@
                   @foreach($columns as $col)
                     <td>{{$user->$col}}</td>            
                   @endforeach
+                  <td><img src="{{ url('uploads/users/'.$user->image)}}" width="100px"></td>
                   <td>
                     <a class="btn btn-xs btn-primary" href="/admin/user/edit/{{$user->id}}" title="Edit"><i class="fas fa-edit"></i>Edit</a>
                     <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete{{$user->id}}" title="Delete"><i class="fas fa-trash"></i>Delete</button>

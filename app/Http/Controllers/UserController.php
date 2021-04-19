@@ -21,8 +21,8 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        $headers = ['Name', 'Username', 'Phone', 'Alamat','Email', 'User Type','Action'];
-        $columns = ['name', 'username', 'phone', 'address','email', 'user_type'];
+        $headers = ['Name', 'Username', 'Phone', 'Tempat Tanggal Lahir','Alamat', 'User Type','Action'];
+        $columns = ['name', 'username', 'phone', 'birthdateplace', 'address', 'user_type'];
         $data = [
             'users' => $users,
             'headers' => $headers,
@@ -47,10 +47,12 @@ class UserController extends Controller
     {
         Request()->validate([
             'name' => 'required',
+            // 'birthdateplace' => 'required',
             // 'username' => 'required',
             // 'email' => 'required',
         ], [
             'name.required' => 'wajib diisi !',
+            // 'birthdateplace.required' => 'wajib diisi !',
             // 'username.required' => 'wajib diisi !',
             // 'username.unique' => 'username sudah dipakai !',
             // 'email.required' => 'wajib diisi !',
@@ -59,10 +61,19 @@ class UserController extends Controller
 
         $data = [
             'name' => Request()->name,
+            'birthdateplace' => Request()->birthdateplace,
             'address' => Request()->address,
             // 'username' => Request()->username,
             // 'email' => Request()->email
         ];
+
+        if(Request()->image <> ""){
+            //validate image
+            $file = Request()->image;
+            $fileName = Request()->username . '.' . $file->extension();
+            $file->move(public_path('uploads/users'), $fileName);
+            $data['image'] = $fileName;
+        }
 
         $this->User->updateData($id, $data);
         return redirect()->route('user')->with('message', 'Data berhasil diupdate');

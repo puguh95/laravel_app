@@ -41,7 +41,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="exampleInputPrice1">Price</label>
+        <label for="exampleInputPrice1">Harga</label>
         <input type="text" name="price" value="{{ $catalog->price }}" class="form-control" id="exampleInputPrice1" placeholder="Masukkan Harga">
         <div class="text-danger">
           @error('price')
@@ -49,9 +49,11 @@
           @enderror
         </div>
       </div>
-      <img src="{{ url('uploads/catalogs/'.$catalog->image)}}" width="150px">
       <div class="form-group">
-        <label for="exampleInputFile">File input</label>
+        <label for="exampleInputFile">Upload Image</label>
+        <div class="input-group">
+          <img src="{{ url('uploads/catalogs/'.$catalog->image)}}" width="300px" height="200px"> 
+        </div>
         <div class="input-group">
           <div class="custom-file">
             <input type="file" name="image" class="custom-file-input" id="exampleInputFile">

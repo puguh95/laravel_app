@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Registration Page</title>
-
+  @include('layout.partials.head')
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -15,19 +12,20 @@
   <link rel="stylesheet" href="{{asset('AdminLTE')}}/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition register-page">
+<!-- ======= Header ======= -->
+@include('layout.partials.header')
+<!-- End Header -->
 <div class="register-box">
-  <div class="register-logo">
-    <a href="#"><b>Register</b>Account</a>
-  </div>
-
-  <div class="card">
+  <div class="card card-outline card-primary">
+      <a href="#" class="h2 text-center"><b>Register</b>Account</a>
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Register a new membership</p>
+      <!-- <p class="login-box-msg">Register a new membership</p> -->
 
-      <form action="{{ route('register') }}" method="post">
+      <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="input-group mb-3">
-          <input type="text" name="name" class="form-control" placeholder="Full name">
+          <!-- <label class="col-form-label" for="inputError"><i class="far fa-times-circle"></i> Input with error</label> -->
+          <input type="text" name="name" id="name" class="form-control" placeholder="Full name" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -35,7 +33,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" name="username" class="form-control" placeholder="Username">
+          <input type="text" name="username" class="form-control" placeholder="Username" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -43,7 +41,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" name="phone" class="form-control" placeholder="Phone">
+          <input type="text" name="phone" class="form-control" placeholder="Phone" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-phone"></span>
@@ -51,7 +49,15 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" name="address" class="form-control" placeholder="Address">
+          <input type="text" name="birthdateplace" class="form-control" placeholder="Tempat Tanggal Lahir" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-baby"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="address" class="form-control" placeholder="Address" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-home"></span>
@@ -59,15 +65,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" name="email" class="form-control" placeholder="Email">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="Password">
+          <input type="password" name="password" class="form-control" placeholder="Password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -75,21 +73,21 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="password_confirmation" class="form-control" placeholder="Retype password">
+          <input type="password" name="password_confirmation" class="form-control" placeholder="Retype password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <div class="custom-file">
+            <input type="file" name="image" class="custom-file-input" id="exampleInputFile" required>
+            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
           </div>
         </div>
         <div class="row">
           <div class="col-8">
-            <!-- <div class="icheck-primary">
-              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-              <label for="agreeTerms">
-               I agree to the <a href="#">terms</a>
-              </label>
-            </div> -->
           </div>
           <!-- /.col -->
           <div class="col-4">
@@ -124,6 +122,11 @@
 <script src="{{asset('AdminLTE')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('AdminLTE')}}/dist/js/adminlte.min.js"></script>
+<script src="{{asset('AdminLTE')}}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
 </body>
 </html>
-
