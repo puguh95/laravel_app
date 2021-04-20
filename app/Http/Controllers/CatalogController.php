@@ -57,7 +57,7 @@ class CatalogController extends Controller
         //validate image
         $file = Request()->image;
         $fileName = Request()->code . '.' . $file->extension();
-        $file->move(public_path('uploads/catalogs'), $fileName);
+        $file->move('uploads/catalogs', $fileName);
         
         $data = [
             'name' => Request()->name,
@@ -111,7 +111,7 @@ class CatalogController extends Controller
             //validate image
             $file = Request()->image;
             $fileName = Request()->code . '.' . $file->extension();
-            $file->move(public_path('uploads/catalogs'), $fileName);
+            $file->move('uploads/catalogs', $fileName);
             $data['image'] = $fileName;
         }
 
@@ -123,7 +123,7 @@ class CatalogController extends Controller
     {
         $catalog = $this->Catalog->detail_catalog($id);
         if($catalog->image <> ""){
-            unlink(public_path('uploads/catalogs') . '/' . $catalog->image);
+            unlink('uploads/catalogs' . '/' . $catalog->image);
         }
         $this->Catalog->deleteData($id);
         return redirect()->route('catalog')->with('message', 'Data berhasil dihapus');

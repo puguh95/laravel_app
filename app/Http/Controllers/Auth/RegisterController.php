@@ -71,7 +71,7 @@ class RegisterController extends Controller
         //validate image
         $file =  Request()->image;
         $fileName =  Request()->username . '.' . $file->extension();
-        $file->move(public_path('uploads/users'), $fileName);
+        $file->move('uploads/users', $fileName);
 
         return User::create([
             'name' => $data['name'],
