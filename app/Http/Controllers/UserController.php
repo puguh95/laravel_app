@@ -22,7 +22,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        $headers = ['Name', 'Username', 'Phone', 'Tanggal Lahir','Tempat Lahir','Alamat', 'User Type','Action'];
+        $headers = ['Name', 'Username', 'Phone', 'Tanggal Lahir','Tempat Lahir','Alamat', 'User Type','Foto KTP','Action'];
         $columns = ['name', 'username', 'phone', 'birthdate', 'birthplace', 'address', 'user_type'];
         $data = [
             'users' => $users,
