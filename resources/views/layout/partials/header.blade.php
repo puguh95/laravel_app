@@ -12,7 +12,7 @@
             <a>Hi {{ Auth::user()->username }} !</a>
             <ul>
               <li>
-                <a href="#">Data Diri</a>
+                <a href="/user-profile">Data Diri</a>
               </li>
               <li>
                 <a href="#">List Pemesanan</a>

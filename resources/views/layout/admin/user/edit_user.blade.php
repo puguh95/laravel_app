@@ -2,6 +2,8 @@
 
 @section('title', 'Edit User')
 @section('content')
+<!-- daterange picker -->
+<link rel="stylesheet" href="{{asset('AdminLTE')}}/plugins/daterangepicker/daterangepicker.css">
 <!-- general form elements -->
 <div class="col-sm-6">
 <div class="card card-primary">
@@ -32,13 +34,27 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="exampleInputBirthdateplace1">Tempat Tanggal Lahir</label>
-        <input type="text" name="birthdateplace" class="form-control" id="exampleInputBirthdateplace1" placeholder="Masukkan Tempat Tanggal Lahir" value="{{$user->birthdateplace}}">
+        <label for="exampleInputBirthplace1">Tempat Lahir</label>
+        <input type="text" name="birthplace" class="form-control" id="exampleInputBirthplace1" placeholder="Masukkan Tempat Lahir" value="{{$user->birthplace}}">
         <div class="text-danger">
-          @error('birthdateplace')
+          @error('birthplace')
             {{ $message }}
           @enderror
         </div>
+      </div>
+      <div class="form-group">
+        <label>Tanggal Lahir</label>
+          <div class="input-group date" id="birthdate" data-target-input="nearest">
+              <input type="text" name="birthdate" class="form-control datetimepicker-input" data-target="#birthdate" value="{{$user-> birthdate}}"/>
+              <div class="input-group-append" data-target="#birthdate" data-toggle="datetimepicker">
+                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+              </div>
+          </div>
+          <div class="text-danger">
+            @error('birthdate')
+              {{ $message }}
+            @enderror
+          </div>
       </div>
       <div class="form-group">
         <label for="exampleInputPhone1">Phone</label>
@@ -115,7 +131,30 @@
 
 @section('script')
 <script src="{{asset('AdminLTE')}}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- Select2 -->
+<script src=".{{asset('AdminLTE')}}/plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="{{asset('AdminLTE')}}/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<!-- InputMask -->
+<script src="{{asset('AdminLTE')}}/plugins/inputmask/jquery.inputmask.min.js"></script>
+<script src="{{asset('AdminLTE')}}/plugins/moment/moment.min.js"></script>
+<!-- date-range-picker -->
+<script src="{{asset('AdminLTE')}}/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="{{asset('AdminLTE')}}/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{{asset('AdminLTE')}}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="{{asset('AdminLTE')}}/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<!-- BS-Stepper -->
+<script src="{{asset('AdminLTE')}}/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+<!-- dropzonejs -->
+<script src="{{asset('AdminLTE')}}/plugins/dropzone/min/dropzone.min.js"></script>
 <script>
+//Date picker
+$('#birthdate').datetimepicker({
+  format: 'YYYY-MM-DD'
+});
 $(function () {
   bsCustomFileInput.init();
 });

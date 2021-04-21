@@ -49,7 +49,7 @@
             <div class="modal-dialog modal-sm">
               <div class="modal-content bg-danger">
                 <div class="modal-header">
-                  <h4 class="modal-title">Danger Modal {{$user->id}}</h4>
+                  <h4 class="modal-title">Hapus {{$user->username}}</h4>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-outline-light" data-dismiss="modal">Tidak</button>
-                  <a href="/admin/user/delete/{{$user->id}}" type="button" class="btn btn-outline-light">Ya</a>
+                  <a href="/admin/user/delete/{{$user->id}}" class="btn btn-outline-light">Ya</a>
                 </div>
               </div>
               <!-- /.modal-content -->

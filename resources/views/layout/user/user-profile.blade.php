@@ -18,7 +18,7 @@
 @include('layout.partials.header')
 <!-- End Header -->
 <main id="main">
-<section id="register" class="services section">
+<section id="edit-profile" class="services section">
 <div class="container">
   <!-- daterange picker -->
   <link rel="stylesheet" href="{{asset('AdminLTE')}}/plugins/daterangepicker/daterangepicker.css">
@@ -30,12 +30,12 @@
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
+    <form action="/user/update/{{ Auth::user()->id }}" method="post" enctype="multipart/form-data">
       @csrf
       <div class="card-body">
         <div class="form-group">
           <label for="exampleInputName1">Nama</label>
-          <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Masukkan Nama" required/>
+          <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Masukkan Nama" value="{{ Auth::user()->name }}">
           <div class="text-danger">
             @error('name')
               {{ $message }}
@@ -44,7 +44,7 @@
         </div>
         <div class="form-group">
           <label for="exampleInputUsername1">Username</label>
-          <input type="text" name="username" class="form-control" id="exampleInputUsername1" placeholder="Masukkan Username" required/>
+          <input type="text" name="username" class="form-control" id="exampleInputUsername1" placeholder="Masukkan Username" value="{{ Auth::user()->username }}" readonly>
           <div class="text-danger">
             @error('username')
               {{ $message }}
@@ -53,7 +53,7 @@
         </div>
         <div class="form-group">
           <label for="exampleInputBirthplace1">Tempat Lahir</label>
-          <input type="text" name="birthplace" class="form-control" id="exampleInputBirthplace1" placeholder="Masukkan Tempat Lahir" required/>
+          <input type="text" name="birthplace" class="form-control" id="exampleInputBirthplace1" placeholder="Masukkan Tempat Lahir" value="{{ Auth::user()->birthplace }}">
           <div class="text-danger">
             @error('birthplace')
               {{ $message }}
@@ -63,10 +63,10 @@
         <div class="form-group">
           <label>Tanggal Lahir</label>
             <div class="input-group date" id="birthdate" data-target-input="nearest">
-              <input type="text" name="birthdate" class="form-control datetimepicker-input" data-target="#birthdate" required/>
-              <div class="input-group-append" data-target="#birthdate" data-toggle="datetimepicker">
-                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-              </div>
+                <input type="text" name="birthdate" class="form-control datetimepicker-input" data-target="#birthdate" value="{{ Auth::user()->birthdate }}"/>
+                <div class="input-group-append" data-target="#birthdate" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
             </div>
             <div class="text-danger">
               @error('birthdate')
@@ -76,7 +76,7 @@
         </div>
         <div class="form-group">
           <label for="exampleInputPhone1">Phone</label>
-          <input type="text" name="phone" class="form-control" id="exampleInputPhone1" placeholder="Masukkan Telepon/HP" required/>
+          <input type="text" name="phone" class="form-control" id="exampleInputPhone1" placeholder="Masukkan Telepon/HP" value="{{ Auth::user()->phone }}" readonly>
           <div class="text-danger">
             @error('phone')
               {{ $message }}
@@ -85,7 +85,7 @@
         </div>
         <div class="form-group">
           <label for="exampleInputAddress1">Alamat</label>
-          <input type="text" name="address" class="form-control" id="exampleInputAddress1" placeholder="Masukkan Alamat" required/>
+          <input type="text" name="address" class="form-control" id="exampleInputAddress1" placeholder="Masukkan Alamat" value="{{ Auth::user()->address }}">
           <div class="text-danger">
             @error('address')
               {{ $message }}
@@ -95,7 +95,7 @@
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
           <div class="input-group">
-            <input type="password" name="password" class="form-control" placeholder="Password" minlength="6" required>
+            <input type="password" name="password" class="form-control" placeholder="Password" minlength="6">
             <div class="input-group-append">
               <div class="input-group-text"><i class="fa fa-lock"></i></div>
             </div> 
@@ -104,7 +104,7 @@
         <div class="form-group">
           <label for="exampleInputPassword1">Password Confirmation</label>
           <div class="input-group">
-            <input type="password" name="password_confirmation" class="form-control" placeholder="Retype password" minlength="6" required>
+            <input type="password" name="password_confirmation" class="form-control" placeholder="Retype password" minlength="6">
             <div class="input-group-append">
               <div class="input-group-text"><i class="fas fa-lock"></i></div>
             </div>
@@ -112,6 +112,9 @@
         </div>
         <div class="form-group">
           <label for="exampleInputFile">Foto KTP</label>
+          <div class="input-group">
+            <img src="{{ url('uploads/users/'.Auth::user()->image )}}" width="300px" height="200px">
+          </div>
           <div class="input-group">
             <div class="custom-file">
               <input type="file" name="image" class="custom-file-input" id="exampleInputFile">
@@ -124,6 +127,31 @@
             </div>
           </div>
         </div>
+        <!-- <div class="form-group">
+          <label for="exampleInputEmail1">Email</label>
+          <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Email" value="{{ Auth::user()->email }}" readonly>
+          <div class="text-danger">
+            @error('email')
+              {{ $message }}
+            @enderror
+          </div>
+        </div> -->
+        <!-- <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <div class="input-group">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="exampleInputFile">
+              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+            </div>
+            <div class="input-group-append">
+              <span class="input-group-text">Upload</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div> -->
       </div>
       <!-- /.card-body -->
 

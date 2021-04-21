@@ -59,6 +59,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/user/edit/{id}', func[UserController::class, 'edit']);
+Route::get('/user-profile', function () {
+    return view('layout.user.user-profile');
+});
+
+Route::post('/user/update/{id}', [UserController::class, 'editProfile']);
 
 //Admin Dashboard Routes Group
 Route::group(['middleware' => 'admin'], function (){

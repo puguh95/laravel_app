@@ -58,7 +58,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-outline-light" data-dismiss="modal">Tidak</button>
-                  <a href="/admin/catalog/delete/{{$catalog->id}}" type="button" class="btn btn-outline-light">Ya</a>
+                  <a href="/admin/catalog/delete/{{$catalog->id}}" class="btn btn-outline-light">Ya</a>
                 </div>
               </div>
               <!-- /.modal-content -->
