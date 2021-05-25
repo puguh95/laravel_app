@@ -1,7 +1,7 @@
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="#hero"><img src="OnePage/assets/img/pinjemin-aja-logo-header.png" alt="" class="img-fluid"></a></h1>
+      <h1 class="logo mr-auto"><a href="#hero"><img src="{{asset('OnePage')}}/assets/img/pinjemin-aja-logo-header.png" alt="" class="img-fluid"></a></h1>
 
       @include('layout.partials.navigator')
       <!-- .nav-menu -->
@@ -15,7 +15,7 @@
                 <a href="/user-profile">Data Diri</a>
               </li>
               <li>
-                <a href="#">List Pemesanan</a>
+                <a href="/list-order">List Pemesanan</a>
               </li>
               <li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-block">

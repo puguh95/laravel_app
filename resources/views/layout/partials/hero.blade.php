@@ -4,7 +4,7 @@
         <div class="col-xl-7 col-lg-9 text-center">
           <!-- <h1>PINJEMINAJA.COM</h1>
           <h2>Aplikasi Jasa Sewa Barang</h2> -->
-          <h1><img src="OnePage/assets/img/pinjemin-aja-logo-header.png" alt="" class="img-fluid" style="max-height:200px"></h1>
+          <h1><img src="{{asset('OnePage')}}/assets/img/pinjemin-aja-logo-header.png" alt="" class="img-fluid" style="max-height:200px"></h1>
         </div>
       </div>
       <div class="text-center">

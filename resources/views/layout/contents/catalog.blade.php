@@ -16,7 +16,7 @@
               <h4><sup>Rp</sup>{{$catalog->price}}<span> / hari</span></h4>
               <div class="pricing">
                 <div class="box">
-                  <a href="#" class="btn-buy">Pesan {{$catalog->code}}</a>
+                  <a href="/catalog/{{$catalog->id}}/order" class="btn-buy">Pesan {{$catalog->code}}</a>
                 </div>
               </div>
             </div>

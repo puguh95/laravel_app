@@ -128,4 +128,16 @@ class CatalogController extends Controller
         $this->Catalog->deleteData($id);
         return redirect()->route('catalog')->with('message', 'Data berhasil dihapus');
     }
+
+    public function form_order($id)
+    {
+        $catalog = $this->Catalog->detail_catalog($id);
+        if(!$catalog) {
+            abort(404);
+        }
+        $data = [
+            'catalog' => $catalog,
+        ];
+        return view('layout.order.form-order', $data);
+    }
 }

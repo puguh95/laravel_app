@@ -76,7 +76,7 @@
         <div class="form-group">
           <label>Tanggal Lahir</label>
             <div class="input-group date" id="birthdate" data-target-input="nearest">
-              <input type="text" name="birthdate" class="form-control datetimepicker-input" data-target="#birthdate" required/>
+              <input type="text" name="birthdate" class="form-control datetimepicker-input" data-target="#birthdate" data-toggle="datetimepicker" required/>
               <div class="input-group-append" data-target="#birthdate" data-toggle="datetimepicker">
                   <div class="input-group-text"><i class="fa fa-calendar"></i></div>
               </div>

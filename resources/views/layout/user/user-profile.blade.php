@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="{{asset('AdminLTE')}}/dist/css/adminlte.min.css">
   <!-- daterange picker -->
   <link rel="stylesheet" href="{{asset('AdminLTE')}}/plugins/daterangepicker/daterangepicker.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="{{asset('AdminLTE')}}/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
 </head>
 <body class="hold-transition">
 <!-- ======= Header ======= -->
@@ -63,7 +65,7 @@
         <div class="form-group">
           <label>Tanggal Lahir</label>
             <div class="input-group date" id="birthdate" data-target-input="nearest">
-                <input type="text" name="birthdate" class="form-control datetimepicker-input" data-target="#birthdate" value="{{ Auth::user()->birthdate }}"/>
+                <input type="text" name="birthdate" class="form-control datetimepicker-input" data-toggle="datetimepicker" data-target="#birthdate" value="{{ Auth::user()->birthdate }}"/>
                 <div class="input-group-append" data-target="#birthdate" data-toggle="datetimepicker">
                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                 </div>
@@ -174,7 +176,7 @@
 <script src="{{asset('AdminLTE')}}/dist/js/adminlte.min.js"></script>
 <script src="{{asset('AdminLTE')}}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- Select2 -->
-<script src=".{{asset('AdminLTE')}}/plugins/select2/js/select2.full.min.js"></script>
+<script src="{{asset('AdminLTE')}}/plugins/select2/js/select2.full.min.js"></script>
 <!-- Bootstrap4 Duallistbox -->
 <script src="{{asset('AdminLTE')}}/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
 <!-- InputMask -->

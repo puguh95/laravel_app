@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,8 +64,13 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/user-profile', function () {
     return view('layout.user.user-profile');
 });
+Route::get('/catalog/{id}/order', [CatalogController::class, 'form_order']);
 
 Route::post('/user/update/{id}', [UserController::class, 'editProfile']);
+Route::post('/order/create', [OrderController::class, 'create_order']);
+Route::get('/list-order', [OrderController::class, 'list_order'])->name('list-order');
+Route::get('/order/{id}/detail', [OrderController::class, 'detail_order'])->name('detail-order');
+Route::post('/order/{id}/upload', [OrderController::class, 'upload_payment']);
 
 //Admin Dashboard Routes Group
 Route::group(['middleware' => 'admin'], function (){
