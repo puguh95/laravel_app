@@ -77,6 +77,20 @@ $(function () {
   bsCustomFileInput.init();
 });
 </script>
+<!-- Vendor JS Files -->
+<script src="{{asset('OnePage')}}/assets/vendor/jquery/jquery.min.js"></script>
+<script src="{{asset('OnePage')}}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('OnePage')}}/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="{{asset('OnePage')}}/assets/vendor/php-email-form/validate.js"></script>
+<script src="{{asset('OnePage')}}/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+<script src="{{asset('OnePage')}}/assets/vendor/counterup/counterup.min.js"></script>
+<script src="{{asset('OnePage')}}/assets/vendor/venobox/venobox.min.js"></script>
+<script src="{{asset('OnePage')}}/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="{{asset('OnePage')}}/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="{{asset('OnePage')}}/assets/vendor/aos/aos.js"></script>
+
+<!-- Template Main JS File -->
+<script src="{{asset('OnePage')}}/assets/js/main.js"></script>
 </section>
 </main>
 </body>

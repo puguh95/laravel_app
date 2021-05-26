@@ -3,31 +3,8 @@
 
       <h1 class="logo mr-auto"><a href="#hero"><img src="{{asset('OnePage')}}/assets/img/pinjemin-aja-logo-header.png" alt="" class="img-fluid"></a></h1>
 
-      @include('layout.partials.navigator')
       <!-- .nav-menu -->
-      @isset(Auth::user()->username)
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="drop-down">
-            <a>Hi {{ Auth::user()->username }} !</a>
-            <ul>
-              <li>
-                <a href="/user-profile">Data Diri</a>
-              </li>
-              <li>
-                <a href="/list-order">List Pemesanan</a>
-              </li>
-              <li>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-block">
-                  @csrf
-                  <a href="#" onclick="document.getElementById('logout-form').submit()">Logout</a>
-                </form>
-              </li>
-            </ul>
-          </li>
-        <ul>
-      </nav>
-      @endisset
+      @include('layout.partials.navigator')
 
       @empty(Auth::user()->username)
       <a href="/login" class="get-started-btn scrollto">Login</a>

@@ -13,7 +13,7 @@
               <h4>{{$catalog->name}}</h4>
               <p>Code: {{$catalog->code}}</p>
               <p>{{$catalog->description}}</p>
-              <h4><sup>Rp</sup>{{$catalog->price}}<span> / hari</span></h4>
+              <h4>@currency($catalog->price)<span> / hari</span></h4>
               <div class="pricing">
                 <div class="box">
                   <a href="/catalog/{{$catalog->id}}/order" class="btn-buy">Pesan {{$catalog->code}}</a>
