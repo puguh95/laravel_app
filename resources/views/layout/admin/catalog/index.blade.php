@@ -32,7 +32,11 @@
                 @foreach($catalogs as $catalog)
                 <tr>
                   @foreach($columns as $col)
-                    <td>{{$catalog->$col}}</td>            
+                    @if ($col === "price")
+                    <td>@currency($catalog->$col)</td>
+                    @else
+                    <td>{{$catalog->$col}}</td>
+                    @endif
                   @endforeach
                   <td><img src="{{ url('uploads/catalogs/'.$catalog->image)}}" width="100px"></td>
                   <td>

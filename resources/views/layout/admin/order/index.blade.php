@@ -9,7 +9,7 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title col-6">Data Order</h3>
-          <a href="/admin/catalog/add"><button type="button" class="btn btn-block btn-primary btn-sm col-1 float-sm-right">Tambah</button></a>
+          <!-- <a href="/admin/order/add"><button type="button" class="btn btn-block btn-primary btn-sm col-1 float-sm-right">Tambah</button></a> -->
         </div>  
         <!-- /.card-header -->
         <div class="card-body">
@@ -32,40 +32,20 @@
                 @foreach($orders as $order)
                 <tr>
                   @foreach($columns as $col)
-                    <td>{{$order->$col}}</td>            
+                    @if ($col === "total_price")
+                    <td>@currency($order->$col)</td>
+                    @else
+                    <td>{{$order->$col}}</td>
+                    @endif
                   @endforeach
-                  <td><img src="{{ url('uploads/orders/'.$order->payment_upload)}}" width="100px"></td>
+                  <!-- <td><img src="{{ url('uploads/orders/'.$order->payment_upload)}}" width="100px"></td> -->
                   <td>
-                    <a class="btn btn-xs btn-primary" href="/admin/catalog/edit/{{$catalog->id}}" title="Edit"><i class="fas fa-edit"></i>Edit</a>
-                    <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#delete{{$catalog->id}}" title="Delete"><i class="fas fa-trash"></i>Delete</button>
+                    <a class="btn btn-xs btn-primary" href="/admin/order/{{$order->id}}/detail" title="Detail"><i class="fas fa-edit"></i>Detail</a>
                   </td>
                 </tr>
                 @endforeach
             </tbody>
           </table>
-          @foreach($catalogs as $catalog)
-          <div class="modal fade" id="delete{{$catalog->id}}">
-            <div class="modal-dialog modal-sm">
-              <div class="modal-content bg-danger">
-                <div class="modal-header">
-                  <h4 class="modal-title">Hapus Barang {{$catalog->name}}</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>Apakah anda yakin ingin menghapus ?</p>
-                </div>
-                <div class="modal-footer justify-content-between">
-                  <button type="button" class="btn btn-outline-light" data-dismiss="modal">Tidak</button>
-                  <a href="/admin/catalog/delete/{{$catalog->id}}" class="btn btn-outline-light">Ya</a>
-                </div>
-              </div>
-              <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-          </div>
-          @endforeach
         </div>
       </div>
     </div>
@@ -95,10 +75,10 @@ $(function () {
 </script>
 <script>
   $(function () {
-    $("#catalog").DataTable({
+    $("#order").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["excel", "pdf", "print"]
-    }).buttons().container().appendTo('#catalog_wrapper .col-md-6:eq(0)');
+    }).buttons().container().appendTo('#order_wrapper .col-md-6:eq(0)');
   });
 </script>
 @endsection

@@ -86,4 +86,8 @@ Route::group(['middleware' => 'admin'], function (){
     Route::get('/admin/catalog/edit/{id}', [CatalogController::class, 'edit']);
     Route::get('/admin/catalog/delete/{id}', [CatalogController::class, 'delete']);
     Route::post('/admin/catalog/update/{id}', [CatalogController::class, 'update']);
+
+    Route::get('/admin/order', [OrderController::class, 'index'])->name('order');
+    Route::get('/admin/order/{id}/detail', [OrderController::class, 'detail_order']);
+    Route::post('/admin/order/update/{id}/status', [OrderController::class, 'update_status']);
 });

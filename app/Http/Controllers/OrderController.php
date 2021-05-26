@@ -35,8 +35,8 @@ class OrderController extends Controller
     public function index()
     {
         $orders = $this->Order::all();
-        $headers = ['No Order', 'Status', 'Total Harga', 'Tanggal Mulai Pemesanan', 'Tanggal Akhir Pemesanan','Alamat Pengiriman', 'Deskripsi','Action'];
-        $columns = ['no', 'status', 'total_price', 'start_date', 'end_date', 'delivery_address', 'description'];
+        $headers = ['No Order', 'Total Harga', 'Tanggal Mulai Pinjam', 'Tanggal Akhir Pinjam', 'Alamat Pengiriman', 'Status', 'Action'];
+        $columns = ['no', 'total_price', 'start_date', 'end_date', 'delivery_address', 'status'];
         $data = [
             'orders' => $orders,
             'headers' => $headers,
@@ -181,7 +181,16 @@ class OrderController extends Controller
             'headers' => $headers,
             'columns' => $columns
         ];
-        return view('layout.order.detail-order', $data);
+
+        if(auth()->user()){
+            if(auth()->user()->user_type === 'ADMIN'){
+                return view('layout.admin.order.detail-order', $data);
+            } else {
+                return view('layout.order.detail-order', $data);
+            }
+        } else {
+            return view('index',$data);
+        }
     }
 
     public function upload_payment($id){
@@ -204,5 +213,20 @@ class OrderController extends Controller
 
         $this->Order->updateData($id, $data);
         return redirect()->route('list-order')->with('message', 'Data berhasil diupdate');
+    }
+
+    public function update_status($id){
+        Request()->validate([
+            'status' => 'required',
+        ], [
+            'status.required' => 'wajib diisi !',
+        ]);
+
+        $data['status'] = Request()->status;
+
+        $order = $this->Order->detail_order($id);
+
+        $this->Order->updateData($id, $data);
+        return redirect()->route('order')->with('message', 'Data berhasil diupdate');
     }
 }

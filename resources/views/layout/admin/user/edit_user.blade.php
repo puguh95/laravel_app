@@ -4,6 +4,8 @@
 @section('content')
 <!-- daterange picker -->
 <link rel="stylesheet" href="{{asset('AdminLTE')}}/plugins/daterangepicker/daterangepicker.css">
+<!-- Tempusdominus Bootstrap 4 -->
+<link rel="stylesheet" href="{{asset('AdminLTE')}}/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
 <!-- general form elements -->
 <div class="col-sm-6">
 <div class="card card-primary">
@@ -45,7 +47,7 @@
       <div class="form-group">
         <label>Tanggal Lahir</label>
           <div class="input-group date" id="birthdate" data-target-input="nearest">
-              <input type="text" name="birthdate" class="form-control datetimepicker-input" data-target="#birthdate" value="{{$user-> birthdate}}"/>
+              <input type="text" name="birthdate" class="form-control datetimepicker-input" data-toggle="datetimepicker" data-target="#birthdate" value="{{$user-> birthdate}}"/>
               <div class="input-group-append" data-target="#birthdate" data-toggle="datetimepicker">
                   <div class="input-group-text"><i class="fa fa-calendar"></i></div>
               </div>

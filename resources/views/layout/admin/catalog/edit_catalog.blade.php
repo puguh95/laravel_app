@@ -71,7 +71,7 @@
 
     <div class="card-footer">
       <button type="submit" class="btn btn-primary">Submit</button>
-      <button type="submit" class="btn btn-default float-right">Cancel</button>
+      <a href="/admin/catalog" class="btn btn-default float-right">Cancel</a>
     </div>
   </form>
 </div>
