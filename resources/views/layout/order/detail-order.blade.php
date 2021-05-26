@@ -70,7 +70,7 @@
       </div>
       @if ($order->status === 'Menunggu Pembayaran')
       <div class="row col-12">
-        <p>Silahkan melakukan pembayaran melalui Bank .... dengan norek.... atas nama ....</p>
+        <p>Silahkan melakukan pembayaran melalui Bank BNI Syariah dengan norek 0735995502 atas nama Muhammad Faris Julianto</p>
       </div>
       <div class="row col-12">
         <p>Setelah melakukan pembayaran, upload bukti pembayaran</p>
